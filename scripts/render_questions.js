@@ -36,16 +36,14 @@ let questionValues = [100, 200, 300, 400, 500];
  */
 function renderQuestions() {
   for (let i = 0; i < numCategories; i++) {
+    let questioncells = [];
     for (let n = 0; n < questionValues.length; n++) {
-      console.log("n", n);
-      console.log("questionValues", questionValues[n]);
-      $("#questions").append(
-        "<div class='question-column'><div class='question-cell' data-category='" +
-          n +
-          ">" +
-          questionValues[n] +
-          "</div></div>"
-      );
+      let questioncell = `<div class='question-cell' data-catergory='${n}'>${questionValues[n]}</div>`;
+      questioncells.push(questioncell);
     }
+    let column = `<div class='questions-column'>${questioncells.join(
+      ""
+    )}</div>`;
+    $("#questions").append(column);
   }
 }
